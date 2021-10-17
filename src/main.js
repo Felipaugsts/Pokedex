@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 import axios from "axios";
 import VueLazyload from 'vue-lazyload'
+import './components/global-components'
 
 Vue.use(VueLazyload)
 

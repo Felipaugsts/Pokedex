@@ -1,0 +1,19 @@
+.field-wrapper { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    width: 150px;
+    height: 65px;
+    border-radius: 10px;
+}
+.input-textfield { 
+    height: 80px !important;
+    border-radius: 10px !important;
+}
+.label-field { 
+    font-family: inter !important;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
