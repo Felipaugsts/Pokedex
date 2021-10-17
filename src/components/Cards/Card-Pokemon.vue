@@ -1,22 +1,15 @@
 <template>
-<div>
-  <!-- <div class="poke-container" :style="`background: ${color}`">
-    <img class="poke-image" :src="pokeData.sprites.other.dream_world.front_default" />
-  <div class="poke-title-wrapper"> 
-    <p class="poke-title">{{pokeData.name}}</p>
-  </div>
-  </div> -->
-<div class="poke-container">
+<div class="poke-container" @click="Details(pokeData)">
   <img  :data-src="pokeData.sprites.other.dream_world.front_default"  class="poke-image" :style="`background: ${color}`">
   <div class="poke-title-wrapper">
     <div class="poke-title">{{pokeData.name}}</div>
   </div>
 </div>
-</div>
 </template>
 <script>
-import axios from 'axios'
+import {PokemonCard} from '../../Mixins/PokeCardMixins'
 export default {
+  mixins: [PokemonCard],
   props: ['pokeData'],
   data() {
     return {
@@ -24,17 +17,13 @@ export default {
     }
 },
 methods: {
-  getcolor() {
-      axios({
-    url:`/pokemon-species/${this.pokeData.id}/`,
-    method: 'GET'
-  }).then((res) => {
-    this.color = res.data.color.name
-  })
+  Details(v) { 
+    this.$router.push(`/about/${v.id}`)
   }
 },
 mounted() {
-this.getcolor()
+  const id = null
+this.getcolor(id)
 }
 }
 </script>
@@ -64,10 +53,11 @@ object-fit: scale-down;
   width: 300px;
   min-width: 250px;
   background: var(color);
-  border: 1px solid grey;
+  /* border: 1px solid grey; */
   border-radius: 8px;
   margin: 10px;
   cursor: pointer;
+   border-radius: 15px;
 }
 
 

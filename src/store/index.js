@@ -34,7 +34,7 @@ export default new Vuex.Store({
             console.log('filters.quantidade', filters.quantidade)
       }
       axios({
-        url: `/pokemon?limit=${filters !== null ? filters.quantidade : '5'}&offset=${filters !== null ? filters.quantidade * 2 : '10' }`,
+        url: `/pokemon?limit=${filters !== null ? filters.quantidade : '10'}&offset=${filters !== null ? filters.quantidade * 2 : '10' }`,
         method: 'GET'
       }).then((res) => {
         const allpokemon = res.data 

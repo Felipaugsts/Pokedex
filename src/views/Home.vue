@@ -2,7 +2,6 @@
   <div class="home">
     <div class="container">
       <Filters @render="Rendering" />
-      <!-- {{AllPokemons.length}} -->
     </div>
     {{FilterName}}
    <strong v-if="AllPokemons">Items na pagina:  {{AllPokemons.length}}</strong> <br/>
@@ -21,7 +20,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import CardPokemon from '@/components/Cards/Card-Pokemon.vue'
 import Filters from '@/components/Pages/Pokemon-Filter.vue'
 export default {

@@ -53,8 +53,9 @@ export default {
 .filter-container { 
     width: 80%;
     height: auto;
-    background: rgb(238, 238, 238);
+    background: rgb(245, 243, 243);
     padding: 20px;
+    border-radius: 15px;
 }
 .wrapper-fields { 
     display: flex;
