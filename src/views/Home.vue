@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <div v-for="(pokemon, i) in AllPokemons" :key="i">
-    <CardPokemon :pokeData="pokemon"/>
+    <div class="container">
+    <CardPokemon v-lazy-container="{ selector: 'img' }" v-for="(pokemon, i) in AllPokemons" :key="i" :pokeData="pokemon"/>
     </div>
   </div>
 </template>
@@ -30,3 +30,11 @@ export default {
   }
 }
 </script>
+<style scoped>
+.container { 
+  display: flex;
+ flex-wrap: wrap;
+ justify-content: center;
+
+}
+</style>

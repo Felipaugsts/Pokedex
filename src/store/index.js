@@ -18,7 +18,7 @@ export default new Vuex.Store({
   actions: {
     GetPokemon({commit}) { 
       axios({
-        url: '/pokemon?limit=10&offset=20',
+        url: '/pokemon?limit=30&offset=30',
         method: 'GET'
       }).then((res) => {
         const allpokemon = res.data 

@@ -1,8 +1,18 @@
 <template>
-  <div class="poke-container" :style="`background: ${color}`">
+<div>
+  <!-- <div class="poke-container" :style="`background: ${color}`">
     <img class="poke-image" :src="pokeData.sprites.other.dream_world.front_default" />
+  <div class="poke-title-wrapper"> 
     <p class="poke-title">{{pokeData.name}}</p>
   </div>
+  </div> -->
+<div class="poke-container">
+  <img  :data-src="pokeData.sprites.other.dream_world.front_default"  class="poke-image" :style="`background: ${color}`">
+  <div class="poke-title-wrapper">
+    <div class="poke-title">{{pokeData.name}}</div>
+  </div>
+</div>
+</div>
 </template>
 <script>
 import axios from 'axios'
@@ -29,23 +39,61 @@ this.getcolor()
 }
 </script>
 <style scoped>
-.poke-container { 
-  height: 400px; 
-  width: 300px;
-  background: var(color);
-  border: 1px solid grey;
-  border-radius: 8px;
-}
+
 .poke-image { 
-height: 300px;
-width: 200px;
 object-fit: scale-down;
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  transition: .5s ease;
+  backface-visibility: hidden;
 }
+
 .poke-title { 
   font-family: inter !important;
   color: white;
   font-size: 26px;
   font-weight: 600;
-/* text-transform: capitalize; */
+  text-transform: capitalize;
 }
+
+.poke-container {
+  position: relative;
+  height: 400px; 
+  width: 300px;
+  min-width: 250px;
+  background: var(color);
+  border: 1px solid grey;
+  border-radius: 8px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+
+
+.poke-title-wrapper {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+  background: rgb(95, 86, 86);
+  padding: 5px;
+  border-radius: 8px; 
+}
+
+.poke-container:hover .poke-image {
+  filter: brightness(30%);
+-webkit-box-shadow: 0px 0px 13px 2px rgba(0,0,0,0.65); 
+box-shadow: 0px 0px 13px 2px rgba(0,0,0,0.65);
+}
+
+.poke-container:hover .poke-title-wrapper {
+  opacity: 1;
+}
+
 </style>
