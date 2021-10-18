@@ -11,14 +11,20 @@ export default new Vuex.Store({
         quantidade: 10,
 
       },
+      loader: false
   },
   getters: {
     AllPokemons: (state) => state.Pokemons,
     filters: (state) => state.filters,
+    loading: (state) => state.loader,
     currentpage: (state) => state.filters.page
   },
   mutations: {
-    
+
+    SET_LOADER(state, i) {
+      state.loader = i
+    },
+
     SET_NEW_LIMIT(state, PokeFiltered) { 
        state.Pokemons = PokeFiltered
       console.log('lenght', state.Pokemons)
@@ -59,6 +65,11 @@ export default new Vuex.Store({
             })
          })
          commit('SET_NEW_LIMIT', AllPokemons)
+         setTimeout(function(){
+                    commit('SET_LOADER', false)
+                }, 1500);
+         
+         
       })
     }
   },

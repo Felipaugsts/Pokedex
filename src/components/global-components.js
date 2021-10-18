@@ -5,8 +5,10 @@ const components = {
   SelectField: () => import("@/components/Inputs/SelectField.vue"),
 
   // Button
+    Button: () => import("@/components/Button/Button.vue"),
 
-    Button: () => import("@/components/Button/Button.vue")
+    // LOADER 
+     Loader: () => import("@/components/Loader.vue")
 };
 
 Object.entries(components).forEach(([name, component]) =>
