@@ -1,9 +1,10 @@
 <template>
-  <div class="about">
-    <div class="poke-info" :style="`border: 1px solid ${color}`">
+  <div class="about" :style="`background: ${color}`">
+    <div class="poke-info" >
       <Button label="Voltar"  @onclick="voltar()" />
           <img class="img" :src="pokemon.url" />
-    <h1 class="name-poke" :style="`color: ${color}`">{{pokemon.name}}</h1>
+        
+    <h1 class="name-poke" >{{pokemon.name}}</h1>
       <h3>HP: {{pokemon.hp.base_stat}} </h3>
       <h3>Atack: {{pokemon.attack.base_stat}}</h3>
       <h3>Defense: {{pokemon.defense.base_stat}} </h3>
@@ -56,14 +57,15 @@ axios({
 </script>
 <style scoped>
 .poke-info { 
-  height: 60%;
-  width: 60%;
+  height: auto;
+  width: 50%;
   background: white;
   padding: 50px;
   border-radius: 20px;
 }
 .about { 
   height: 100vh;
+  opacity: 0.5;
   display: flex; 
   align-items: center;
   justify-content: center;
@@ -79,6 +81,6 @@ axios({
 object-fit: scale-down;
   display: block;
   width: 100%;
-  height: 200px;
+  max-height: 200px;
 }
 </style>

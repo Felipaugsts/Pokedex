@@ -2,18 +2,16 @@
   <div class="home">
     <div class="container">
       <Filters @render="Rendering" />
-    </div>
-    {{FilterName}}
-   <strong v-if="AllPokemons">Items na pagina:  {{AllPokemons.length}}</strong> <br/>
-   <strong v-if="FilterName">Filtrando pelo nome:  {{FilterName}} </strong>
-
+    </div><br/>
+   <strong v-if="AllPokemons">Items na pagina:  {{AllPokemons.length}}</strong>
    <div v-if="pagination" class="container">
-     <Button label="Anterior" style="marginTop: 10px" @onclick="previous()"  />
-     <Button label="Proxima" style="marginTop: 10px" @onclick="next()"  />
+
+     <Button v-if="currentpage  > 0" label="Anterior" style="marginTop: 10px; marginRight: 20px" @onclick="changePage(v = 'previous')"  />
+     <Button  label="Proxima" style="marginTop: 10px" @onclick="changePage( v = 'next')"  />
    </div>
 
     <div class="container">
-    <CardPokemon v-lazy-container="{ selector: 'img' }" v-for="(pokemon, i) in AllPokemons" :key="i" :pokeData="pokemon"/>
+      <CardPokemon v-lazy-container="{ selector: 'img' }" v-for="(pokemon, i) in AllPokemons.sort(function(a, b){return a-b})" :key="i" :pokeData="pokemon"/>
     </div>
 </div>
 
@@ -30,8 +28,13 @@ export default {
   },
   data() { 
     return {
-      payload: null,
-      pagination: false
+      payload: { 
+        page: 0,
+        quantidade: 10,
+
+      },
+      pagination: true,
+      currentPage: 0,
     }
   },
   methods: {
@@ -42,11 +45,17 @@ export default {
         this.pagination = false
       }
     },
-    previos() {
-      console.log('previous page')
-    },
-    next() { 
-      console.log('next page')
+  async changePage(v) {
+    this.payload.quantidade = this.AllPokemons.length
+    console.log('v', v)
+      if (v === 'previous') {
+        this.payload.page = this.currentPage - this.payload.quantidade
+          } 
+      else if (v === 'next') { 
+          this.payload.page = this.currentPage + this.payload.quantidade
+          }
+      await this.$store.commit('SET_CURRENT_PAGE', this.payload.page )
+      await this.$store.dispatch('GetPokemon', this.payload)
     }
   },  
 
@@ -54,26 +63,25 @@ export default {
   AllPokemons() {
     return this.$store.getters.AllPokemons
   },
-  FilterName() {
+  AllFilters() {
     return this.$store.getters.filters
+  },
+  currentpage() {
+    return this.$store.getters.currentpage
   }
   },
   mounted() {
     this.$store.dispatch('GetPokemon', this.payload)
   },
   watch: { 
-    FilterName() { 
-      if (this.FilterName) {
-       const filtered = this.AllPokemons.filter((poke) => { 
-          if (poke.name.toLowerCase().includes(this.FilterName.toLowerCase())) {
-            this.filtered.push(poke)
-            
-          }
-           
-        })
-            console.log('name', filtered)
-      }
+    AllFilters() { 
+      const quantidade = this.AllFilters.quantidade
+      this.payload.quantidade = quantidade
     },
+
+    currentpage() {
+      this.currentPage = this.currentpage
+    }
   }
 }
 </script>

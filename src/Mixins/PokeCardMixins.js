@@ -17,7 +17,6 @@ axios({
     method: 'GET'
   }).then((res) => {
     this.color = res.data.color.name
-    console.log(this.color)
   })
   },
     }
