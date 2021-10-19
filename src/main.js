@@ -9,14 +9,15 @@ import firebase from 'firebase'
 
 Vue.use(VueLazyload)
 
+// ADD FIREBASE CONFIG TO USE FIREBASE HOSTING 
 const firebaseConfig = {
-  apiKey: "AIzaSyDJ4nA2RK8qZHddgxxQWODi2ILUKyU9Cak",
-  authDomain: "pokedex12.firebaseapp.com",
+  apiKey: "",
+  authDomain: "",
   projectId: "pokedex12",
-  storageBucket: "pokedex12.appspot.com",
-  messagingSenderId: "527953933637",
-  appId: "1:527953933637:web:6ee38923f38c302add7a2c",
-  measurementId: "G-C4G97SS235"
+  storageBucket: "",
+  messagingSenderId: "",
+  appId: "",
+  measurementId: ""
 };
 
 firebase.initializeApp(firebaseConfig);
