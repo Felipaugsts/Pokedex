@@ -36,17 +36,6 @@ this.getcolor(id)
 </script>
 <style scoped>
 
-.poke-image { 
-  object-fit: scale-down;
-  background: rgb(250, 248, 248);
-  border-radius: 10px;
-  opacity: 1;
-  display: block;
-  width: 100%;
-  height: 100%;
-  transition: .5s ease;
-  backface-visibility: hidden;
-}
 
 .poke-title { 
   font-family: inter !important;
@@ -56,18 +45,6 @@ this.getcolor(id)
   text-transform: capitalize;
 }
 
-.poke-container {
-  position: relative;
-  height: 320px; 
-  width: 300px;
-  min-width: 250px;
-  background: var(color);
-  /* border: 1px solid grey; */
-  border-radius: 8px;
-  margin: 10px;
-  cursor: pointer;
-   border-radius: 15px;
-}
 .container-wrapper{ 
   height: 400px; 
   width: 320px;

@@ -8,7 +8,8 @@ const components = {
     Button: () => import("@/components/Button/Button.vue"),
 
     // LOADER 
-     Loader: () => import("@/components/Loader.vue")
+     Loader: () => import("@/components/Loader/Loader.vue"),
+     Skeleton: () => import("@/components/Loader/Skeleton.vue")
 };
 
 Object.entries(components).forEach(([name, component]) =>

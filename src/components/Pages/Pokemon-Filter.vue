@@ -21,7 +21,7 @@ export default {
             },
               Rendering: { 
                 label: "Renderização",
-                value: 'Paginado',
+                value: 'Fluído',
                 option1: 'Paginado',
                 option2: 'Fluído',
                 
@@ -34,7 +34,7 @@ export default {
                 const filtereBy = { 
                     quantidade: this.QtdFilter.value
                 }
-                this.$store.dispatch('GetPokemon', filtereBy)
+                this.$emit('getPoke', filtereBy)
                 this.$emit('render', this.Rendering.value)
 
 

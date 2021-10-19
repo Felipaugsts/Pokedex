@@ -10,13 +10,13 @@ import firebase from 'firebase'
 Vue.use(VueLazyload)
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDceSH1lfJrpF0wf0in0qjZh_jNAC3kH2c",
-  authDomain: "pokedex-5c873.firebaseapp.com",
-  projectId: "pokedex-5c873",
-  storageBucket: "pokedex-5c873.appspot.com",
-  messagingSenderId: "468907186431",
-  appId: "1:468907186431:web:53c51402bcef95c81594ca",
-  measurementId: "G-T1XRMZD6QJ"
+  apiKey: "AIzaSyDJ4nA2RK8qZHddgxxQWODi2ILUKyU9Cak",
+  authDomain: "pokedex12.firebaseapp.com",
+  projectId: "pokedex12",
+  storageBucket: "pokedex12.appspot.com",
+  messagingSenderId: "527953933637",
+  appId: "1:527953933637:web:6ee38923f38c302add7a2c",
+  measurementId: "G-C4G97SS235"
 };
 
 firebase.initializeApp(firebaseConfig);

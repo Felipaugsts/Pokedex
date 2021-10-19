@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-
     <Loader v-if="loading" />
     <router-view/>
   </div>
@@ -18,6 +17,7 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,100&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import "./assets/Global-style/Global-Inputs.scss";
+@import "./assets/Global-style/Global-pokemon.scss";
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
